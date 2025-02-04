@@ -4,8 +4,9 @@ const mongodb = require("mongodb");
 const mongoose = require("mongoose");
 const MongoClient = mongodb.MongoClient;
 const app = express();
+const dotenv = require("dotenv").config();
 
-const URL = "mongodb://localhost:27017/fsd13";
+const URL = process.env.DB || "mongodb://localhost:27017";
 mongoose.connect(URL);
 
 const { Product } = require("./model/product");
